@@ -476,6 +476,57 @@
                         { metric: "User Trust", change: "Significant Lift" }
                     ]
                 }
+            },
+            {
+                id: "zomato-retention",
+                title: "Zomato: Rebuilding Trust & Driving Retention",
+                company: "Zomato",
+                framework: "Funnel Analysis & 3-Pillar Strategy",
+                summary: "Fixing the 'Leaky Bucket' by optimizing delivery reliability and post-order experience in Tier-1 cities.",
+                thumbnail: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=2074&auto=format&fit=crop",
+                tags: ["FoodTech", "Retention", "Ops Strategy"],
+                role: "Product Strategy",
+                timeline: "2 Weeks (Strategy)",
+                tools: "Funnel Analysis, Cohort Analysis, OKR Framework",
+                heroStat: "Target: +15% Day-30 Retention",
+                fullCaseStudyUrl: "https://drive.google.com/file/d/1FGhD2eqetay8T69UvE0Z_26eVTnBxJ3F/view?usp=sharing",
+                content: {
+                    problem: {
+                        statement: "We excel at acquisition but leak our most valuable users due to operational unreliability.",
+                        context: "Despite high brand awareness and strong first-order conversion, Zomato faces churn in Tier-1 cities. The core issue isn't food quality but delivery anxiety: inaccurate ETAs, cold food, and slow support resolution. This 'Trust Deficit' erodes long-term LTV.",
+                        visual: "chart-churn" 
+                    },
+                    research: [
+                        { label: "Delivery Funnel", value: "45% Drop", desc: "Critical failure point in user journey." },
+                        { label: "Pain Point", value: "Anxiety", desc: "'Where is my food?' is the #1 stressor." },
+                        { label: "Cost of Churn", value: "5x", desc: "Acquiring a new user vs retaining one." }
+                    ],
+                    extendedContent: {
+                        jtbd: [
+                            { type: "Functional", desc: "Receive my food hot and exactly within the promised time window." },
+                            { type: "Emotional", desc: "Feel relaxed and cared for, trusting that Zomato 'has my back' if things go wrong." },
+                            { type: "Social", desc: "Reliably host friends or family without the embarrassment of late/cold food." }
+                        ],
+                        journey: [
+                            { stage: "Ordering", action: "Place Order", pain: "Hidden fees shock at checkout", solution: "Upfront 'All-Inclusive' Pricing UI" },
+                            { stage: "Delivery", action: "Wait for Food", pain: "Inaccurate ETA, rider not moving", solution: "Hyper-Accurate Real-Time Tracking & Proactive Delay Alerts" },
+                            { stage: "Post-Order", action: "Issue Resolution", pain: "Missing item, slow refund", solution: "Instant 'Zomato Chat' for 30-sec auto-resolution" }
+                        ]
+                    },
+                    solution: {
+                        strategy: "Three-Pillar Strategy: 1) Radical Reliability (Ops), 2) Effortless Engagement (UX), 3) Long-Term Loyalty (Rewards).",
+                        features: [
+                            { name: "Smart Routing", desc: "Algorithmic rider allocation to ensure hotter food." },
+                            { name: "Proactive Alerts", desc: "Tell users about delays *before* they ask." },
+                            { name: "One-Click Repeat", desc: "Reduce friction for re-ordering favorites." }
+                        ]
+                    },
+                    impact: [
+                        { metric: "On-Time Delivery", change: "Target 95%+" },
+                        { metric: "Day-30 Retention", change: "+15% Lift" },
+                        { metric: "Support Tickets", change: "-25% Vol" }
+                    ]
+                }
             }
         ];
 
@@ -842,7 +893,7 @@
                     </div>
 
                     <div className="container mx-auto px-6 mb-12 text-center relative z-10">
-                        <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">Companies I've Worked With</h2>
+                        <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">Companies & Projects I've Worked With</h2>
                         <p className="text-gray-400 max-w-2xl mx-auto text-sm md:text-base">
                             Impressive track record delivering high-profile projects for US Federal Government agencies and leading global enterprises.
                         </p>
@@ -903,16 +954,132 @@
             );
         };
 
+        // --- NEW: Achievements Section ---
+        const Achievements = () => {
+            const awardsRow1 = [
+                { title: "Spotlight Award", org: "Excellence in Product", icon: "zap" },
+                { title: "Rising Star Award", org: "Emerging Leader", icon: "star" },
+                { title: "Employee of the Year", org: "Outstanding Performance", icon: "award" },
+                { title: "Top Performer Award", org: "Consistent Impact", icon: "trending-up" },
+                { title: "Design Winner", org: "@SOPAN", icon: "pen-tool" }
+            ];
+
+            const awardsRow2 = [
+                { title: "Top Case Study", org: "Highest Rank Submission", icon: "file-text" },
+                { title: "Microsoft Certified", org: "Product Grade: 92.59%", icon: "check-circle" },
+                { title: "AI Expert", org: "Product Innovation", icon: "cpu" },
+                { title: "Case Study Winner", org: "Blinkit Challenge", icon: "trophy" }, 
+                { title: "Performer of the Month", org: "Finomics", icon: "bar-chart" } 
+            ];
+
+            // Achievement Images from local folder
+            const achievementImages = [
+                "images/achivements/IMG_4011.JPG",
+                "images/achivements/IMG_7861.JPG",
+                "images/achivements/IMG_4009.JPG",
+                "images/achivements/IMG_0382.JPG",
+                "images/achivements/IMG_4010.JPG",
+                "images/achivements/IMG_5892.JPG",
+                "images/achivements/IMG_4008.JPG"
+            ];
+
+            const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+            useEffect(() => {
+                const interval = setInterval(() => {
+                    setCurrentImageIndex((prev) => (prev + 1) % achievementImages.length);
+                }, 3000);
+                return () => clearInterval(interval);
+            }, [achievementImages.length]);
+
+            const AwardCard = ({ item }) => (
+                <div className="flex-shrink-0 w-64 md:w-80 glass-panel p-6 rounded-2xl border border-white/10 mx-4 hover:border-primary/50 transition-colors group">
+                    <div className="flex items-start justify-between mb-4">
+                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center text-white border border-white/10 group-hover:scale-110 transition-transform">
+                            <Icon name={item.icon} size={20} />
+                        </div>
+                        <Icon name="award" size={16} className="text-gray-600 group-hover:text-primary transition-colors"/>
+                    </div>
+                    <h3 className="text-lg font-bold text-white mb-1">{item.title}</h3>
+                    <p className="text-xs text-gray-400 font-mono uppercase tracking-wider">{item.org}</p>
+                </div>
+            );
+
+            return (
+                <section className="py-24 relative overflow-hidden bg-darker">
+                    <div className="container mx-auto px-6 relative z-10 mb-12 text-center">
+                        <h2 className="text-4xl font-display font-bold mb-4">Achievements & Recognition</h2>
+                        <div className="h-1 w-20 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
+                    </div>
+
+                    <div className="flex flex-col gap-12 relative">
+                         {/* Row 1: Left to Right */}
+                        <div className="flex animate-marquee whitespace-nowrap hover:[animation-play-state:paused]">
+                            {[...awardsRow1, ...awardsRow1, ...awardsRow1].map((award, i) => (
+                                <AwardCard key={`r1-${i}`} item={award} />
+                            ))}
+                        </div>
+
+                        {/* Row 2: Right to Left */}
+                        <div className="flex animate-marquee whitespace-nowrap hover:[animation-play-state:paused]" style={{ animationDirection: 'reverse' }}>
+                            {[...awardsRow2, ...awardsRow2, ...awardsRow2].map((award, i) => (
+                                <AwardCard key={`r2-${i}`} item={award} />
+                            ))}
+                        </div>
+
+                        {/* Auto-scrolling Image Carousel */}
+                        <div className="mt-8 container mx-auto px-6 max-w-4xl">
+                            <div className="glass-panel p-2 rounded-3xl border border-white/10 relative overflow-hidden h-[400px] group">
+                                <AnimatePresence mode="wait">
+                                    <motion.img
+                                        key={currentImageIndex}
+                                        src={achievementImages[currentImageIndex]}
+                                        alt={`Achievement ${currentImageIndex + 1}`}
+                                        initial={{ opacity: 0, scale: 1.1 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        exit={{ opacity: 0 }}
+                                        transition={{ duration: 0.8 }}
+                                        className="w-full h-full object-cover rounded-2xl"
+                                    />
+                                </AnimatePresence>
+                                
+                                {/* Overlay Content */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-8">
+                                    <div className="glass-panel px-6 py-3 rounded-xl backdrop-blur-md border border-white/20">
+                                        <h4 className="text-white font-bold text-lg flex items-center gap-2">
+                                            <Icon name="camera" size={16} className="text-primary"/> 
+                                            Key Milestones
+                                        </h4>
+                                    </div>
+                                </div>
+                                
+                                {/* Progress Indicators */}
+                                <div className="absolute bottom-4 right-8 flex gap-2">
+                                    {achievementImages.map((_, idx) => (
+                                        <div 
+                                            key={idx} 
+                                            className={`w-2 h-2 rounded-full transition-all duration-300 ${idx === currentImageIndex ? 'bg-primary w-6' : 'bg-white/30'}`}
+                                        />
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            );
+        };
+
         const CaseStudyCard = ({ study, onClick }) => {
             return (
                 <motion.div 
                     whileHover={{ y: -10 }}
-                    className="glass-panel rounded-3xl overflow-hidden cursor-pointer group relative flex flex-col h-full hover:border-primary/50 transition-all duration-500"
+                    transition={{ duration: 0.2 }}
+                    className="glass-panel rounded-3xl overflow-hidden cursor-pointer group relative flex flex-col h-full hover:border-primary/50 transition-all duration-200"
                     onClick={() => onClick(study)}
                 >
                     <div className="h-56 overflow-hidden relative">
-                        <img src={study.thumbnail} alt={study.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                        <div className="absolute inset-0 bg-dark/50 group-hover:bg-dark/30 transition-colors"></div>
+                        <img src={study.thumbnail} alt={study.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+                        <div className="absolute inset-0 bg-dark/50 group-hover:bg-dark/30 transition-colors duration-200"></div>
                         <div className="absolute top-5 right-5">
                              <div className="flex items-center gap-2 px-3 py-1.5 bg-black/60 backdrop-blur-md rounded-lg border border-white/10">
                                 <div className="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_#00F0FF]"></div>
@@ -923,13 +1090,13 @@
 
                     <div className="p-8 flex-1 flex flex-col">
                         <div className="mb-8">
-                            <h3 className="text-2xl font-display font-bold text-white mb-3 leading-tight group-hover:text-primary transition-colors">{study.title}</h3>
+                            <h3 className="text-2xl font-display font-bold text-white mb-3 leading-tight group-hover:text-primary transition-colors duration-200">{study.title}</h3>
                             <p className="text-gray-400 text-sm leading-relaxed">{study.summary}</p>
                         </div>
                         
                         <div className="mt-auto flex items-center justify-between border-t border-white/10 pt-5">
                             <span className="text-xs font-mono text-primary bg-primary/10 px-2 py-1 rounded">{study.framework}</span>
-                            <span className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-primary group-hover:text-black transition-all duration-300 transform group-hover:rotate-45">
+                            <span className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-primary group-hover:text-black transition-all duration-200 transform group-hover:rotate-45">
                                 <Icon name="arrow-up-right" size={20} />
                             </span>
                         </div>
@@ -1299,7 +1466,7 @@
                             <a href="https://www.linkedin.com/in/parth-umraliya?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-[#0A66C2] transition-colors hover:scale-110 transform duration-300">
                                 <Icon name="linkedin" size={28} />
                             </a>
-                            <a href="#" className="text-gray-600 hover:text-[#FF0000] transition-colors hover:scale-110 transform duration-300">
+                            <a href="https://www.youtube.com/@ParthJU" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-[#FF0000] transition-colors hover:scale-110 transform duration-300">
                                 <Icon name="youtube" size={28} />
                             </a>
                             <a href="https://drive.google.com/drive/folders/1U5A1-V_1s5n4uz3eAZLrjNLez-5pbPCH?usp=sharing" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-[#1FA463] transition-colors hover:scale-110 transform duration-300">
@@ -1532,6 +1699,7 @@
                             <Navbar activeSection={activeSection} />
                             <Hero />
                             <TrustedBy />
+                            <Achievements />
                             <CaseStudies onSelect={(s) => { setSelectedStudy(s); setView('detail'); }} />
                             <Process />
                             <AILab />
