@@ -483,7 +483,7 @@
                 company: "Zomato",
                 framework: "Funnel Analysis & 3-Pillar Strategy",
                 summary: "Fixing the 'Leaky Bucket' by optimizing delivery reliability and post-order experience in Tier-1 cities.",
-                thumbnail: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=2074&auto=format&fit=crop",
+                thumbnail: "images/company-logos/Zomato.png",
                 tags: ["FoodTech", "Retention", "Ops Strategy"],
                 role: "Product Strategy",
                 timeline: "2 Weeks (Strategy)",
@@ -525,6 +525,57 @@
                         { metric: "On-Time Delivery", change: "Target 95%+" },
                         { metric: "Day-30 Retention", change: "+15% Lift" },
                         { metric: "Support Tickets", change: "-25% Vol" }
+                    ]
+                }
+            },
+            {
+                id: "edtech-platform",
+                title: "Online Education Platform: System Design & Architecture",
+                company: "EdTech Startup",
+                framework: "User-Centered Design & Analytics",
+                summary: "Transforming engagement through personalized learning paths and interactive features for modern education.",
+                thumbnail: "images/achivements/image.png",
+                tags: ["EdTech", "UX Design", "Engagement"],
+                role: "Lead Product Manager",
+                timeline: "3 Months (Discovery & Design)",
+                tools: "Figma, Hotjar, User Interviews, A/B Testing",
+                heroStat: "Target: +40% Course Completion",
+                fullCaseStudyUrl: "https://drive.google.com/file/d/1R9dUU-s7AU_2FwJ9oUcUqq48nGfQmI0v/view?usp=sharing",
+                content: {
+                    problem: {
+                        statement: "Students struggle with low engagement and high dropout rates in online courses.",
+                        context: "Despite having quality content, the platform faces a 65% dropout rate. Students feel overwhelmed by unstructured content, lack personalization, and miss the social aspects of traditional learning. The key challenge is making online education as engaging as in-person experiences.",
+                        visual: "chart-churn" 
+                    },
+                    research: [
+                        { label: "Dropout Rate", value: "65%", desc: "Students leave within first 2 weeks." },
+                        { label: "Engagement Gap", value: "Critical", desc: "Users want interactive, personalized content." },
+                        { label: "Social Learning", value: "Missing", desc: "Peer interaction drives completion by 35%." }
+                    ],
+                    extendedContent: {
+                        jtbd: [
+                            { type: "Functional", desc: "Complete courses efficiently with clear progress tracking and structured learning paths." },
+                            { type: "Emotional", desc: "Feel motivated and confident about learning progress without feeling overwhelmed." },
+                            { type: "Social", desc: "Connect with peers and instructors to validate understanding and stay accountable." }
+                        ],
+                        journey: [
+                            { stage: "Discovery", action: "Browse Courses", pain: "Too many options, unclear difficulty", solution: "AI-Powered Course Recommendations & Skill Level Tags" },
+                            { stage: "Learning", action: "Watch Lectures", pain: "Passive, boring, no interaction", solution: "Interactive Quizzes + Live Q&A Sessions" },
+                            { stage: "Practice", action: "Complete Assignments", pain: "No feedback, unclear expectations", solution: "Instant Feedback System + Peer Review" }
+                        ]
+                    },
+                    solution: {
+                        strategy: "Build a learner-centric platform with personalized paths, gamification, and community features.",
+                        features: [
+                            { name: "Smart Learning Paths", desc: "AI-driven personalized curriculum based on goals and pace." },
+                            { name: "Live Study Groups", desc: "Matched peer groups for collaboration and accountability." },
+                            { name: "Progress Gamification", desc: "Badges, streaks, and leaderboards to boost motivation." }
+                        ]
+                    },
+                    impact: [
+                        { metric: "Course Completion", change: "+40% (Target)" },
+                        { metric: "Daily Active Users", change: "+55%" },
+                        { metric: "Student Satisfaction", change: "NPS +28 points" }
                     ]
                 }
             }
@@ -1079,7 +1130,6 @@
                 >
                     <div className="h-56 overflow-hidden relative">
                         <img src={study.thumbnail} alt={study.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
-                        <div className="absolute inset-0 bg-dark/50 group-hover:bg-dark/30 transition-colors duration-200"></div>
                         <div className="absolute top-5 right-5">
                              <div className="flex items-center gap-2 px-3 py-1.5 bg-black/60 backdrop-blur-md rounded-lg border border-white/10">
                                 <div className="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_#00F0FF]"></div>
